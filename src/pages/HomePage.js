@@ -31,7 +31,7 @@ const HomePage = () => {
         {users && users.map((user, i) => {
           return <div key={i}>
             <h1>{user.username}</h1>
-            <img src={user.image} alt="" />
+            <img className="w-full h-[450px]" src={user.image} alt="" />
 
             <div className="flex justify-end space-x-5 p-2">
               <button onClick={() => handleOpen(i)} className="text-red-700"><i className="fa-solid fa-trash"></i></button>

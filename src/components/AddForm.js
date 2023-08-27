@@ -28,6 +28,10 @@ const AddForm = () => {
         program: Yup.array().min(1).required("Select Program !"),
         country: Yup.string().required("Select your country !"),
         msg: Yup.string().min(10).max(200).required('Message required !'),
+        image:'',
+        imageFile:Yup.mixed().test('invalid', (val)=>{
+            return !['image/jpeg', 'image/jgp', 'image/png'].includes(val.type)
+        }).required(),
     });
 
     const formik = useFormik({
@@ -39,6 +43,7 @@ const AddForm = () => {
             country: '',
             msg: '',
             image: '',
+            imageFile: null,
             id:nanoid(),
         },
         onSubmit: (val) => {
@@ -126,14 +131,17 @@ const AddForm = () => {
                         <Input
                             onChange={(e) => {
                                 const file = e.target.files[0];
+                                formik.setFieldValue('imageFile', file);
                                 const reader = new FileReader();
                                 reader.readAsDataURL(file);
                                 reader.addEventListener('load', (e) => {
                                     formik.setFieldValue('image', e.target.result);
                                 })
                             }}
-                            name="image" type="file" />
+                            name="imageFile" type="file" />
                         {formik.values.image && <img className="my-2" src={formik.values.image} alt="Loading ..." />}
+                        {formik.errors.imageFile && formik.touched.imageFile && <h1 className="text-red-500">{formik.errors.imageFile}</h1>}
+                    
                     </div>
 
 
