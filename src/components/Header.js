@@ -10,7 +10,8 @@ const Header = () => {
 
             <nav className='space-x-5 px-5'>
                 <NavLink>About</NavLink>
-                <NavLink to='/login'>Logout</NavLink>
+                <NavLink to='/login'>Login</NavLink>
+                <NavLink to='/add/user'>Forms</NavLink>
 
             </nav>
         </header>

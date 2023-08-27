@@ -1,0 +1,20 @@
+ // Destertion
+    // const data={
+    //     name:"Nirajan",
+    //     age:25,
+    //     computer:{
+    //         desktop:{
+
+    //         },
+    //         laptop:{
+    //             brand:'Dell',
+    //             model:{
+    //                 processor_gen:7,
+    //                 processor:"i7"
+    //             }
+    //         }
+    //     }
+    // }
+
+    // const laptopmodel =data.computer.laptop.model.processor;
+    // console.log(laptopmodel)
